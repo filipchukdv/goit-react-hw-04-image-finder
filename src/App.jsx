@@ -1,10 +1,10 @@
 import css from 'App.module.css';
-import Searchbar from './Searchbar/Searchbar';
-import ImageGallery from './ImageGallery/ImageGallery';
-import Button from './Button/Button';
-import Loader from './Loader/Loader';
+import Searchbar from './components/Searchbar/Searchbar';
+import ImageGallery from './components/ImageGallery/ImageGallery';
+import Button from './components/Button/Button';
+import Loader from './components/Loader/Loader';
 import { fetchImages } from 'api/App';
-import Modal from './Modal/Modal';
+import Modal from './components/Modal/Modal';
 import { useState, useEffect } from 'react';
 
 export const App = () => {
