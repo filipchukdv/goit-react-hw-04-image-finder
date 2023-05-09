@@ -6,13 +6,13 @@ const fetchImages = (query, currentPage) => {
     .get(API_URL, {
       params: {
         key: KEY,
-        per_page: 12,
+        per_page: 15,
         page: currentPage,
         q: encodeURIComponent(query),
       },
     })
     .then(({ data }) => ({
-      total_items: data.totalHits,
+      totalItems: data.totalHits,
       items: data.hits,
     }));
 };
