@@ -17,23 +17,23 @@ export const App = () => {
   const [currentImage, setCurrentImage] = useState({ src: '', alt: '' });
 
   useEffect(() => {
-    try {
-      if (query === '') {
-        return;
-      }
-      setLoading(true);
-      setButtonVisible(false);
-      async function fetchData() {
+    async function fetchData() {
+      try {
+        setButtonVisible(false);
+        if (query === '') {
+          return;
+        }
+        setLoading(true);
         const { totalItems, items } = await fetchImages(query, currentPage);
         setItems(prev => [...prev, ...items]);
         if (totalItems / currentPage >= 15) setButtonVisible(true);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
-      fetchData();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
     }
+    fetchData();
   }, [query, currentPage]);
 
   useEffect(() => {
