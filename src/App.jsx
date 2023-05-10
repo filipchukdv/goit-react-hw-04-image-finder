@@ -73,13 +73,13 @@ export const App = () => {
   const onButtonClick = e => {
     setCurrentPage(prev => prev + 1);
   };
-
   const onEscPress = e => {
     if (e.key === 'Escape') {
       setCurrentImage({ src: '', alt: '' });
       setModalVisible(false);
     }
   };
+
   return (
     <div className={css.App}>
       <Searchbar onSubmit={onSubmit} />
