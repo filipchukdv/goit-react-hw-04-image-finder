@@ -5,8 +5,10 @@ import { useEffect } from 'react';
 const Modal = ({ src, alt, onBackdropClick, onEscPress }) => {
   useEffect(() => {
     window.addEventListener('keydown', onEscPress);
-    return window.removeEventListener('keydown', onEscPress);
-  });
+    return () => {
+      window.removeEventListener('keydown', onEscPress);
+    };
+  }, [onEscPress]);
 
   return (
     <div className={css.Overlay} onClick={onBackdropClick}>
